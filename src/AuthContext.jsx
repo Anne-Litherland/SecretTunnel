@@ -9,14 +9,14 @@ export function AuthProvider({ children }) {
   const [location, setLocation] = useState("GATE");
 
   // TODO: signup
-  const signup = async (credentials) => {
+  const signup = async (username) => {
     try {
       const response = await fetch(API + "/signup", {
         method: "POST",
         headers: {
           "Content-Type": "applications/json",
         },
-        body: JSON.stringify({ credentials }),
+        body: JSON.stringify({ username }),
       });
       const result = await response.json();
       setToken(result.token);
